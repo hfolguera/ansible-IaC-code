@@ -1,0 +1,10 @@
+---
+  - name: "[ {{ item.dbName }} ] Create service name"
+    lineinfile:
+      path: "/home/oracle/ansible/services.txt"
+      regexp: "^{{ service }}"
+      line: "{{ service }}"
+    loop_control:
+      loop_var: service
+    with_items:
+      - "{{ item.service_names }}"

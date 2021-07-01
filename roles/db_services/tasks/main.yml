@@ -1,0 +1,4 @@
+---
+  - include_tasks: create_services.yml
+    with_items:
+      - "{{ databases }}"

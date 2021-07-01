@@ -1,0 +1,10 @@
+---
+  - name: "[ {{ item.dbName }} ] Deploy scripts"
+    lineinfile:
+      path: "/home/oracle/ansible/scripts.txt"
+      regexp: "^{{ script }}"
+      line: "{{ script }}"
+    loop_control:
+      loop_var: script
+    with_items:
+      - "{{ scripts }}"
